@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PomodoroTimer
 //
-//  Created by 孟金羽 on 15/10/8.
+//  Created by Megabits on 15/10/8.
 //  Copyright © 2015年 ScrewBox. All rights reserved.
 //
 
