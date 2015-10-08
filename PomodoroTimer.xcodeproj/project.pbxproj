@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C04E86361BC6B722004A719E /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E86351BC6B722004A719E /* Pomodoro.swift */; settings = {ASSET_TAGS = (); }; };
 		C0D4CBF51BC69F3A00739C58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4CBF41BC69F3A00739C58 /* AppDelegate.swift */; };
 		C0D4CBF71BC69F3A00739C58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4CBF61BC69F3A00739C58 /* ViewController.swift */; };
 		C0D4CBFA1BC69F3A00739C58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4CBF81BC69F3A00739C58 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C04E86351BC6B722004A719E /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pomodoro.swift; path = ../Pomodoro.swift; sourceTree = "<group>"; };
 		C0D4CBF11BC69F3A00739C58 /* PomodoroTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D4CBF41BC69F3A00739C58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0D4CBF61BC69F3A00739C58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C04E86371BC6B8CF004A719E /* useless */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4CC001BC69F3A00739C58 /* Info.plist */,
+				C0D4CBFD1BC69F3A00739C58 /* LaunchScreen.storyboard */,
+				C0D4CBFB1BC69F3A00739C58 /* Assets.xcassets */,
+			);
+			name = useless;
+			sourceTree = "<group>";
+		};
 		C0D4CBE81BC69F3A00739C58 = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +66,11 @@
 		C0D4CBF31BC69F3A00739C58 /* PomodoroTimer */ = {
 			isa = PBXGroup;
 			children = (
-				C0D4CBF41BC69F3A00739C58 /* AppDelegate.swift */,
-				C0D4CBF61BC69F3A00739C58 /* ViewController.swift */,
 				C0D4CBF81BC69F3A00739C58 /* Main.storyboard */,
-				C0D4CBFB1BC69F3A00739C58 /* Assets.xcassets */,
-				C0D4CBFD1BC69F3A00739C58 /* LaunchScreen.storyboard */,
-				C0D4CC001BC69F3A00739C58 /* Info.plist */,
+				C0D4CBF61BC69F3A00739C58 /* ViewController.swift */,
+				C0D4CBF41BC69F3A00739C58 /* AppDelegate.swift */,
+				C04E86351BC6B722004A719E /* Pomodoro.swift */,
+				C04E86371BC6B8CF004A719E /* useless */,
 			);
 			path = PomodoroTimer;
 			sourceTree = "<group>";
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D4CBF71BC69F3A00739C58 /* ViewController.swift in Sources */,
+				C04E86361BC6B722004A719E /* Pomodoro.swift in Sources */,
 				C0D4CBF51BC69F3A00739C58 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +296,7 @@
 				C0D4CC051BC69F3A00739C58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -24,7 +24,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fFC-uo-QUT">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fFC-uo-QUT">
                                 <rect key="frame" x="32" y="490" width="256" height="2"/>
                                 <animations/>
                             </progressView>
@@ -48,6 +48,9 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-HS-CuY">
                                         <rect key="frame" x="171" y="10" width="51" height="31"/>
                                         <animations/>
+                                        <connections>
+                                            <action selector="continuousTime:" destination="BYZ-38-t0r" eventType="valueChanged" id="Dkq-8n-inZ"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continuous time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBv-wj-t1C">
                                         <rect key="frame" x="20" y="15" width="126" height="21"/>
@@ -75,11 +78,17 @@
                                         <rect key="frame" x="20" y="11" width="34" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nRS-E3-D91"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-em-0JC">
                                         <rect key="frame" x="188" y="11" width="32" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2pL-MV-qOp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -115,10 +124,15 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="process" destination="fFC-uo-QUT" id="TMq-9u-NAC"/>
+                        <outlet property="statusLabel" destination="lkm-Dm-HaJ" id="sgS-jK-Vwk"/>
+                        <outlet property="timeLabel" destination="7ic-hL-pGk" id="5pR-MT-WcU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="395"/>
+            <point key="canvasLocation" x="197" y="437"/>
         </scene>
     </scenes>
 </document>
