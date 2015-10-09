@@ -19,14 +19,23 @@ class pomodoro:NSObject{
     var longBreakTime = 1500 { didSet { setDefaults ("pomo.longBreakTime",value: longBreakTime) } }
     
     var nowTime = 0
+    var localCount = 0
     
     var process:Float = 0
     var timerLabel = "00:00"
     
-    var longBreakEnable = false
+    var longBreakEnable = false {
+        didSet{
+            if !longBreakEnable {
+                localCount = 0
+                stop()
+            }
+        }
+    }
+    var longBreakCount = 4 { didSet { setDefaults ("pomo.longBreakCount",value: longBreakCount) } }
     
     private var timer: NSTimer?
-    private var isDebug = false
+    var isDebug = false
     
      override init() {
         super.init()
@@ -34,10 +43,12 @@ class pomodoro:NSObject{
             pomoTime = getDefaults("pomo.pomoTime") as? Int ?? 1500
             breakTime = getDefaults("pomo.breakTime") as? Int ?? 300
             longBreakTime = getDefaults("pomo.longBreakTime") as? Int ?? 1500
+            longBreakCount = getDefaults("pomo.longBreakCount") as? Int ?? 4
         } else {
             setDefaults ("pomo.pomoTime",value: pomoTime)
             setDefaults ("pomo.breakTime",value: breakTime)
             setDefaults ("pomo.longBreakTime",value: longBreakTime)
+            setDefaults ("pomo.longBreakCount",value: longBreakCount)
         }
         
         updateDisplay()
@@ -48,23 +59,39 @@ class pomodoro:NSObject{
         if nowTime <= 0{
             stopTimer()
             if pomoMode == 1 {
-                pomoMode++
-                nowTime = breakTime
-                print("Pomo Over")
-                breakStart()
+                if longBreakEnable {
+                    print("hh")
+                    if localCount == longBreakCount - 1 {
+                        pomoMode = 3
+                        nowTime = longBreakTime
+                        longBreakStart()
+                    } else {
+                        pomoMode++
+                        nowTime = breakTime
+                        print("Pomo Over")
+                        breakStart()
+                    }
+                } else {
+                    pomoMode++
+                    nowTime = breakTime
+                    print("Pomo Over")
+                    breakStart()
+                }
             } else if pomoMode == 2 {
                 if longBreakEnable {
-                    pomoMode++
-                    nowTime = longBreakTime
-                    longBreakStart()
+                    localCount++
+                    print(localCount)
+                    pomoMode = 0
+                    start()
                 } else {
                     pomoMode = 0
                 }
                 print("Break Over")
             } else if pomoMode == 3 {
                 pomoMode = 0
+                localCount = 0
                 print("Long Break Over")
-                // 准备加入长时休息代码
+                start()
             }
         } else {
             if isDebug {
@@ -107,7 +134,8 @@ class pomodoro:NSObject{
     }
     
     func start() {
-        if pomoMode == 1 {
+        if pomoMode == 0 {
+            pomoMode = 1
             nowTime = pomoTime
             print("PomoTime: \(pomoTime) BreakTime:\(breakTime)")
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
@@ -126,6 +154,7 @@ class pomodoro:NSObject{
         stopTimer()
         pomoMode = 0
         nowTime = 0
+        localCount = 0
     }
     
     private func getDefaults (key: String) -> AnyObject? {

@@ -14,14 +14,12 @@ class ViewController: UIViewController {
     
     @IBAction func start(sender: AnyObject) {
         if pomodoroClass.pomoMode == 0 {
-            pomodoroClass.pomoMode = 1
-            pomodoroClass.start()
-            print("Pomodoro Started")
             timer?.invalidate()
             timer = nil
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "pomoing:", userInfo: nil, repeats: true)
         }
-
+        pomodoroClass.start()
+        print("Pomodoro Started")
     }
     
     @IBAction func stop(sender: AnyObject) {
@@ -34,7 +32,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func continuousTime(sender: UISwitch) {
-        
+        if sender.on {
+            pomodoroClass.longBreakEnable = true
+        } else {
+            pomodoroClass.longBreakEnable = false
+        }
     }
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -49,6 +51,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 个性化 Personalized
+//        pomodoroClass.pomoTime = 1500
+//        pomodoroClass.breakTime = 500
+//        pomodoroClass.longBreakTime = 1500
+//        pomodoroClass.longBreakCount = 4
+        
+        //调试模式（加速模式）Debug mode（fast mode）
+//        pomodoroClass.isDebug = false
+        
         timeLabel.text = pomodoroClass.timerLabel
     }
     
