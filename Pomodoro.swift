@@ -60,10 +60,10 @@ class pomodoro:NSObject{
             stopTimer()
             if pomoMode == 1 {
                 if longBreakEnable {
-                    print("hh")
                     if localCount == longBreakCount - 1 {
                         pomoMode = 3
                         nowTime = longBreakTime
+                        print("Pomo Over")
                         longBreakStart()
                     } else {
                         pomoMode++
@@ -80,7 +80,6 @@ class pomodoro:NSObject{
             } else if pomoMode == 2 {
                 if longBreakEnable {
                     localCount++
-                    print(localCount)
                     pomoMode = 0
                     start()
                 } else {
