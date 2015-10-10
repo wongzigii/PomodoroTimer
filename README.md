@@ -103,6 +103,7 @@ Click here to learn more：[Apple Developer Library](https://developer.apple.com
 
 ####Download the demo to learn more
 
+![Imgur](http://i.imgur.com/pnzF4hb.png)
 
 ## Pomodoro Timer 中文说明
 一个 Swift 制作的简易番茄计时器
@@ -207,3 +208,5 @@ var timerLabel = "00:00"
 点击这里了解更多：[Apple Developer Library](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html#//apple_ref/doc/uid/TP40007072-CH4-SW23)
 
 ####下载测试工程了解更多
+
+![Imgur](http://i.imgur.com/pnzF4hb.png)
