@@ -59,22 +59,14 @@ class pomodoro:NSObject{
         if nowTime <= 0{
             stopTimer()
             if pomoMode == 1 {
+                 print("Pomo Over")
                 if longBreakEnable {
                     if localCount == longBreakCount - 1 {
-                        pomoMode = 3
-                        nowTime = longBreakTime
-                        print("Pomo Over")
                         longBreakStart()
                     } else {
-                        pomoMode++
-                        nowTime = breakTime
-                        print("Pomo Over")
                         breakStart()
                     }
                 } else {
-                    pomoMode++
-                    nowTime = breakTime
-                    print("Pomo Over")
                     breakStart()
                 }
             } else if pomoMode == 2 {
@@ -142,10 +134,14 @@ class pomodoro:NSObject{
     }
     
     private func breakStart() {
+        pomoMode = 2
+        nowTime = breakTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
     }
     
     private func longBreakStart() {
+        pomoMode = 3
+        nowTime = longBreakTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
     }
     
